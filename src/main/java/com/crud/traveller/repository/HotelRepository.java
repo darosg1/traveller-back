@@ -1,24 +1,29 @@
 package com.crud.traveller.repository;
 
-import com.crud.traveller.entity.Flights;
+import com.crud.traveller.entity.Hotel;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 import java.util.Optional;
 
 @Repository
 @Transactional
-public interface FlightsRepository extends CrudRepository<Flights, Long> {
+public interface HotelRepository extends CrudRepository<Hotel, Long> {
     @Override
-    List<Flights> findAll();
+    List<Hotel> findAll();
 
     @Override
-    Optional<Flights> findById(Long flightId);
+    Optional<Hotel> findById(Long hotelId);
 
     @Override
-    Flights save(Flights flights);
+    Hotel save(Hotel hotel);
 
     @Override
-    void deleteById(Long flightId);
+    void deleteById(Long hotelId);
+
+    @Override
+    long count();
 }
+

@@ -1,6 +1,6 @@
 package com.crud.traveller.repository;
 
-import com.crud.traveller.entity.Flights;
+import com.crud.traveller.entity.Excursion;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,16 +9,17 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public interface FlightsRepository extends CrudRepository<Flights, Long> {
+public interface ExcursionRepository extends CrudRepository<Excursion, Long> {
     @Override
-    List<Flights> findAll();
+    List<Excursion> findAll();
 
     @Override
-    Optional<Flights> findById(Long flightId);
+    Optional<Excursion> findById(Long excursionId);
 
     @Override
-    Flights save(Flights flights);
+    Excursion save(Excursion excursion);
 
     @Override
-    void deleteById(Long flightId);
+    void deleteById(Long excursionId);
+}
 }

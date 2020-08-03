@@ -15,7 +15,8 @@ public class FlightsMapper {
                 flightsDto.getArrivalAirport (),
                 flightsDto.getDepartureDate (),
                 flightsDto.getArrivalDate (),
-                flightsDto.getPrice ());
+                flightsDto.getPrice (),
+                flightsDto.getExcursion ());
     }
     public FlightsDto mapToFlightsDto(final Flights flights){
         return new FlightsDto (
@@ -24,12 +25,14 @@ public class FlightsMapper {
                 flights.getArrivalAirport (),
                 flights.getDepartureDate (),
                 flights.getArrivalDate (),
-                flights.getPrice ());
+                flights.getPrice (),
+                flights.getExcursion ());
     }
     public List<FlightsDto> mapToFlightsDtoList (final List<Flights> flightsList){
         return flightsList.stream()
                 .map (f-> new FlightsDto (f.getFlightId (), f.getDepartureAirport (),
-                        f.getArrivalAirport (), f.getDepartureDate (), f.getArrivalDate (), f.getPrice ()))
+                        f.getArrivalAirport (), f.getDepartureDate (), f.getArrivalDate (),
+                        f.getPrice (), f.getExcursion ()))
                 .collect (Collectors.toList ());
     }
 }

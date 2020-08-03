@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/v1")
 public class UserController {
-
     @Autowired
     UserMapper userMapper;
     @Autowired
@@ -42,7 +42,7 @@ public class UserController {
     public void deleteUser(@RequestParam Long userId) throws UserNotFoundException {
         if (userDbService.isExist(userId)) {
             userDbService.deleteUser(userId);
-        } else {
+        }else{
             throw new UserNotFoundException();
         }
     }

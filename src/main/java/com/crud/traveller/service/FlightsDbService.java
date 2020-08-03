@@ -15,15 +15,12 @@ public class FlightsDbService {
     public List<Flights> findAllFlights(){
         return flightsRepository.findAll ();
     }
-
     public Optional<Flights> getFlight(final Long flightId){
         return flightsRepository.findById (flightId);
     }
-
-    public Flights save(final Flights flights){
+    public Flights saveFlight(final Flights flights){
         return flightsRepository.save (flights);
     }
-
     public void deleteFlight(final Long flightId){
         flightsRepository.deleteById (flightId);
     }

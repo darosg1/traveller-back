@@ -1,8 +1,7 @@
 package com.crud.traveller.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.crud.traveller.entity.Excursion;
+import lombok.*;
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -15,4 +14,5 @@ public class FlightsDto {
     private LocalDate departureDate;
     private LocalDate arrivalDate;
     private double price;
+    private Excursion excursion;
 }

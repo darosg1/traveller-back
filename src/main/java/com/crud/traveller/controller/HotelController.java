@@ -3,28 +3,46 @@ package com.crud.traveller.controller;
 import com.crud.traveller.domain.HotelDto;
 import com.crud.traveller.exception.HotelNotFoundException;
 import com.crud.traveller.mapper.HotelMapper;
+import com.crud.traveller.service.HotelDbService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value="/v1")
 public class HotelController {
-
     @Autowired
     HotelMapper hotelMapper;
+    @Autowired
+    HotelDbService hotelDbService;
 
-   /* @RequestMapping(method = RequestMethod.GET, value = "/hotels")
+    @RequestMapping(method = RequestMethod.GET, value = "/hotels")
     public List<HotelDto> getHotels() {
-        return hotelMapper.mapToHotelDtoList (hotelDbService.findAllUsers());
+        return hotelMapper.mapToHotelDtoList (hotelDbService.findAllHotels ());
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "hotels/{hotelId}")
-    public HotelDto getHotel(@RequestParam Long userId) throws HotelNotFoundException {
+    @RequestMapping(method = RequestMethod.GET, value = "/hotels/{hotelId}")
+    public HotelDto getHotel(@RequestParam Long hotelId) throws HotelNotFoundException {
         return hotelMapper.mapToHotelDto(hotelDbService.getHotel(hotelId).orElseThrow(HotelNotFoundException::new));
-    }*/
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/hotels", consumes = APPLICATION_JSON_VALUE)
+    public void createHotel(@RequestBody HotelDto hotelDto){
+        hotelDbService.saveHotel(hotelMapper.mapToHotel(hotelDto));
+    }
+    @RequestMapping(method = RequestMethod.PUT, value = "/hotels", consumes = APPLICATION_JSON_VALUE)
+    public HotelDto updateHotel(@RequestBody HotelDto hotelDto){
+        return hotelMapper.mapToHotelDto (hotelDbService.saveHotel (hotelMapper.mapToHotel (hotelDto)));
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/hotels/{hotelId}")
+    public void deleteHotel(@RequestParam Long hotelId) throws HotelNotFoundException{
+        if (hotelDbService.isExist (hotelId)){
+            hotelDbService.deleteHotel (hotelId);
+        }else{
+            throw new HotelNotFoundException();
+        }
+    }
 }

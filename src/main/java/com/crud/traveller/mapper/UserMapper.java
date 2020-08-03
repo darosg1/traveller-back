@@ -1,7 +1,7 @@
 package com.crud.traveller.mapper;
 
 import com.crud.traveller.domain.UserDto;
-import com.crud.traveller.entity.*;
+import com.crud.traveller.entity.User;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;

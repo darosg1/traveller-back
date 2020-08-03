@@ -4,6 +4,7 @@ import com.crud.traveller.entity.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -12,8 +13,8 @@ public class UserDto {
     private Long userId;
     private String userName;
     private String userKey;
-    private Excursion excursion;
+    private List<Excursion> excursion;
     private VacationPackage vacationPackage;
-    private CurrencyExchange currencyExchange;
+    private List<CurrencyExchange> currencyExchange;
     private Weather weatherForecast;
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value="/v1")
 public class FlightsController {
@@ -29,12 +30,12 @@ public class FlightsController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/flights", consumes = APPLICATION_JSON_VALUE)
     public void createFlight(@RequestBody FlightsDto flightsDto){
-        flightsDbService.save (flightsMapper.mapToFlights (flightsDto));
+        flightsDbService.saveFlight (flightsMapper.mapToFlights (flightsDto));
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/flights", consumes = APPLICATION_JSON_VALUE)
     public FlightsDto updateFlight(@RequestBody FlightsDto flightsDto){
-        return flightsMapper.mapToFlightsDto (flightsDbService.save (flightsMapper.mapToFlights (flightsDto)));
+        return flightsMapper.mapToFlightsDto (flightsDbService.saveFlight (flightsMapper.mapToFlights (flightsDto)));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value ="/flights/{flightId}")

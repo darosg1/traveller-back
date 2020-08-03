@@ -17,7 +17,8 @@ public class HotelMapper {
                 hotelDto.getArrivalDate (),
                 hotelDto.getDepartureDate (),
                 hotelDto.getGuestsNumber (),
-                hotelDto.getPrice ());
+                hotelDto.getPrice (),
+                hotelDto.getExcursion ());
     }
     public HotelDto mapToHotelDto(final Hotel hotel) {
         return new HotelDto (
@@ -28,13 +29,14 @@ public class HotelMapper {
                 hotel.getArrivalDate (),
                 hotel.getDepartureDate (),
                 hotel.getGuestsNumber (),
-                hotel.getPrice ());
+                hotel.getPrice (),
+                hotel.getExcursion ());
     }
     public List<HotelDto> mapToHotelDtoList(final List<Hotel> hotelList){
         return hotelList.stream ()
                 .map (h-> new HotelDto (h.getHotelId (), h.getDestination (), h.getHotelName (),
                         h.getRoomType (), h.getArrivalDate (), h.getDepartureDate (),
-                        h.getGuestsNumber (), h.getPrice ()))
+                        h.getGuestsNumber (), h.getPrice (), h.getExcursion ()))
                 .collect( Collectors.toList ());
     }
 }
