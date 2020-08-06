@@ -14,7 +14,6 @@ public class UserDto {
     private String userName;
     private String userKey;
     private List<Excursion> excursion;
-    private VacationPackage vacationPackage;
     private List<CurrencyExchange> currencyExchange;
-    private Weather weatherForecast;
+    //private List<Weather> weatherForecast;
 }

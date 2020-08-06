@@ -1,7 +1,6 @@
 package com.crud.traveller.entity;
 
 import lombok.*;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -9,6 +8,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name="HOTELS")
 public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,5 +21,6 @@ public class Hotel {
     private int guestsNumber;
     private double price;
     @ManyToOne
+    @JoinColumn(name = "EXCURSION_ID")
     private Excursion excursion;
 }

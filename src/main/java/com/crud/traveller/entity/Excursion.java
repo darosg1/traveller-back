@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name="EXCURSIONS")
 public class Excursion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,12 +28,12 @@ public class Excursion {
     @OneToMany(targetEntity = Flights.class,
             mappedBy = "excursion",
             cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)
+            fetch = FetchType.LAZY)
     private List<Flights> flights = new ArrayList<> ();
 
-    @OneToOne
+   /* @OneToOne
     private Weather weather;
-
+*/
     @ManyToOne
     private User user;
 }

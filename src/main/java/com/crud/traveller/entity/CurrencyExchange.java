@@ -1,23 +1,28 @@
 package com.crud.traveller.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.*;
+import org.springframework.stereotype.Component;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
+@Component
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CurrencyExchange {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long exchangeId;
     private String currency;
-    private double amount;
-    private double exchangeRate;
 
     @ManyToOne
+    @JoinColumn(name = "USER_ID")
     private User user;
 }
 

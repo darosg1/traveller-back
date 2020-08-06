@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-@Table("USERS")
+@Table(name="USERS")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,12 +24,16 @@ public class User {
                 cascade = CascadeType.ALL,
                 fetch = FetchType.EAGER)
     private List<Excursion> excursion = new ArrayList<> ();
-    private VacationPackage vacationPackage;
 
     @OneToMany(targetEntity = CurrencyExchange.class,
             mappedBy = "user",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
     private List<CurrencyExchange> currencyExchange;
-    private Weather weatherForecast;
+
+   /* @OneToMany(targetEntity = Weather.class,
+                mappedBy = "user",
+                cascade = CascadeType.ALL,
+                fetch = FetchType.LAZY)
+    private List<Weather> weatherForecast;*/
 }

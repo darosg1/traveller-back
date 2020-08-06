@@ -4,7 +4,6 @@ import com.crud.traveller.entity.Excursion;
 import com.crud.traveller.repository.ExcursionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +21,7 @@ public class ExcursionDbService{
     public Excursion saveExcursion(final Excursion excursion){
         return excursionRepository.save (excursion);
     }
-    public void deleteUser(Long excursionId){
+    public void deleteExcursion(Long excursionId){
         excursionRepository.deleteById (excursionId);
     }
     public boolean isExist(Long excursionId){

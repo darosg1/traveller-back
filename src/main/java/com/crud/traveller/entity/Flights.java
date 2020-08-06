@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name="FLIGHTS")
 public class Flights {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,5 +19,6 @@ public class Flights {
     private LocalDate arrivalDate;
     private double price;
     @ManyToOne
+    @JoinColumn(name = "EXCURSION_ID")
     private Excursion excursion;
 }

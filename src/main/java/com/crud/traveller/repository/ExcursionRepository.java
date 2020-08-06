@@ -22,4 +22,3 @@ public interface ExcursionRepository extends CrudRepository<Excursion, Long> {
     @Override
     void deleteById(Long excursionId);
 }
-}

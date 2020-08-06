@@ -1,6 +1,7 @@
 package com.crud.traveller.controller;
 
 import com.crud.traveller.domain.UserDto;
+import com.crud.traveller.exception.ExcursionNotFoundException;
 import com.crud.traveller.exception.UserNotFoundException;
 import com.crud.traveller.mapper.UserMapper;
 import com.crud.traveller.service.UserDbService;
@@ -45,5 +46,10 @@ public class UserController {
         }else{
             throw new UserNotFoundException();
         }
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/users/excursions")
+    public void setExcursion(@RequestParam Long userId, @RequestParam Long excursionId) throws UserNotFoundException, ExcursionNotFoundException {
+        userDbService.setExcursionToUser (userId, excursionId);
     }
 }
