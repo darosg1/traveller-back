@@ -25,11 +25,11 @@ public class User {
                 fetch = FetchType.EAGER)
     private List<Excursion> excursion = new ArrayList<> ();
 
-    @OneToMany(targetEntity = CurrencyExchange.class,
+    @OneToMany(targetEntity = Currency.class,
             mappedBy = "user",
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY)
-    private List<CurrencyExchange> currencyExchange;
+    private List<Currency> currency;
 
    /* @OneToMany(targetEntity = Weather.class,
                 mappedBy = "user",

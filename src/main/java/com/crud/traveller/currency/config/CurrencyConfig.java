@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Getter
-public class CurrencyExchangeConfig {
+public class CurrencyConfig {
 
     @Value("${currency.api.endpoint}")
-    private String currencyExchangeApiEndpoint;
+    private String currencyApiEndpoint;
 }
