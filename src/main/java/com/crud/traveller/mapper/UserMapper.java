@@ -14,8 +14,8 @@ public class UserMapper {
             userDto.getUserName (),
             userDto.getUserKey (),
             userDto.getExcursion (),
-            userDto.getCurrency ());
-           // userDto.getWeatherForecast ());
+            userDto.getCurrency (),
+            userDto.getWeather());
     }
     public UserDto mapToUserDto(final User user){
         return new UserDto (
@@ -23,13 +23,13 @@ public class UserMapper {
             user.getUserName (),
             user.getUserKey (),
             user.getExcursion (),
-            user.getCurrency ());
-           // user.getWeatherForecast ());
+            user.getCurrency (),
+            user.getWeather());
     }
     public List<UserDto> mapToUserDtoList (final List<User> userList){
         return userList.stream ()
                 .map (u-> new UserDto (u.getUserId (), u.getUserName (), u.getUserKey (),
-                        u.getExcursion (), u.getCurrency ()))
+                        u.getExcursion (), u.getCurrency (), u.getWeather ()))
                 .collect(Collectors.toList ());
     }
 }

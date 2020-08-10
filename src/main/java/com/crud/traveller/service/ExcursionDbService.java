@@ -12,7 +12,7 @@ public class ExcursionDbService{
     @Autowired
     ExcursionRepository excursionRepository;
 
-    public List<Excursion> findAllExcursion(){
+    public List<Excursion> findAllExcursions(){
         return excursionRepository.findAll ();
     }
     public Optional<Excursion> getExcursion(final Long excursionId) {

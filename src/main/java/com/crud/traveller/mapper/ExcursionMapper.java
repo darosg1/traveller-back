@@ -1,7 +1,7 @@
 package com.crud.traveller.mapper;
 
 import com.crud.traveller.domain.ExcursionDto;
-import com.crud.traveller.entity.Excursion;
+import com.crud.traveller.entity.*;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,7 +16,7 @@ public class ExcursionMapper {
             excursionDto.getDepartureDate (),
             excursionDto.getHotels (),
             excursionDto.getFlights (),
-           // excursionDto.getWeather (),
+            excursionDto.getWeather (),
             excursionDto.getUser ());
     }
     public ExcursionDto mapToExcursionDto(final Excursion excursion){
@@ -27,14 +27,14 @@ public class ExcursionMapper {
                 excursion.getDepartureDate (),
                 excursion.getHotels (),
                 excursion.getFlights (),
-               //excursion.getWeather (),
+                excursion.getWeather (),
                 excursion.getUser ());
     }
     public List<ExcursionDto> mapToExcursionDtoList(final List<Excursion> excursionList){
         return excursionList.stream ()
                 .map ( e->new ExcursionDto (e.getExcursionId (), e.getDestination (),
                         e.getPrice (), e.getDepartureDate (), e.getHotels (), e.getFlights (),
-                    e.getUser ()))
+                    e. getWeather(), e.getUser ()))
                 .collect ( Collectors.toList ());
     }
 }

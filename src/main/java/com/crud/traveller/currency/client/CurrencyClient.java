@@ -19,14 +19,12 @@ import static java.util.Optional.ofNullable;
 @Component
 public class CurrencyClient {
     private static final Logger LOGGER = LoggerFactory.getLogger(CurrencyClient.class);
-
     @Autowired
     RestTemplate restTemplate;
-
     @Autowired
     CurrencyConfig currencyConfig;
 
-    public List<CurrencyDto> getExchangeRates() {
+    public List<CurrencyDto> getExchangeTable () {
         URI url = UriComponentsBuilder.fromHttpUrl ( currencyConfig.getCurrencyApiEndpoint () )
                 .build ().encode ().toUri ();
         try {
@@ -38,7 +36,7 @@ public class CurrencyClient {
         }
     }
 /*
-   public List<CurrencyDto> getExchangeRates() {
+   public List<CurrencyDto> getExchangeTable() {
         CurrencyDto[] currencyResponse = restTemplate.getForObject(
                 currencyConfig.getCurrencyApiEndpoint (),
                 CurrencyDto[].class);

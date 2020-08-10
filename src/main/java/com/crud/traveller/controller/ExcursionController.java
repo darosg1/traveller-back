@@ -20,7 +20,7 @@ public class ExcursionController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/excursions")
     public List<ExcursionDto> getExcursions() {
-        return excursionMapper.mapToExcursionDtoList (excursionDbService.findAllExcursion ());
+        return excursionMapper.mapToExcursionDtoList (excursionDbService.findAllExcursions ());
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/excursions/{excursionId}")

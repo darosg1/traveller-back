@@ -25,15 +25,10 @@ public class User {
                 fetch = FetchType.EAGER)
     private List<Excursion> excursion = new ArrayList<> ();
 
-    @OneToMany(targetEntity = Currency.class,
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY)
+    @Transient
     private List<Currency> currency;
 
-   /* @OneToMany(targetEntity = Weather.class,
-                mappedBy = "user",
-                cascade = CascadeType.ALL,
-                fetch = FetchType.LAZY)
-    private List<Weather> weatherForecast;*/
+    @Transient
+    private List<Weather> weather;
+
 }

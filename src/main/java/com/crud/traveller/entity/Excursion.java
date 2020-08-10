@@ -1,6 +1,7 @@
 package com.crud.traveller.entity;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name="EXCURSIONS")
+@Component
 public class Excursion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,9 +33,9 @@ public class Excursion {
             fetch = FetchType.LAZY)
     private List<Flights> flights = new ArrayList<> ();
 
-   /* @OneToOne
+    @Transient
     private Weather weather;
-*/
+
     @ManyToOne
     private User user;
 }
