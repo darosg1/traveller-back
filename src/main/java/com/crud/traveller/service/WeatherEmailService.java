@@ -10,7 +10,6 @@ import java.util.List;
 
 @Service
 public class WeatherEmailService {
-
     @Autowired
     private SimpleEmailService simpleEmailService;
 
@@ -20,8 +19,12 @@ public class WeatherEmailService {
     @Autowired
     private AdminConfig adminConfig;
 
-    public List<WeatherDto> fetchWeather(){
+   /* public List<WeatherDto> fetchWeather(){
         simpleEmailService.send (new Mail (adminConfig.getAdminMail (), "Information about activity" , "Weather has been checked" ) );
+        return weatherClient.getWeatherReport ();
+    }*/
+    public WeatherDto fetchWeather(){
+        simpleEmailService.send (new Mail (adminConfig.getAdminMail (), "Information about activity" , "Weather has been checked by User." ) );
         return weatherClient.getWeatherReport ();
     }
 }

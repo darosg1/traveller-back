@@ -9,6 +9,4 @@ import lombok.NoArgsConstructor;
 @Data
 public class Weather {
     private String query;
-    private Excursion excursion;
-    private User user;
 }

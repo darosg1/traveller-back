@@ -1,5 +1,7 @@
 package com.crud.traveller.controller;
 
+import com.crud.traveller.currency.facade.ExcursionFacade;
+import com.crud.traveller.currency.validator.ExcursionValidator;
 import com.crud.traveller.domain.ExcursionDto;
 import com.crud.traveller.exception.ExcursionNotFoundException;
 import com.crud.traveller.mapper.ExcursionMapper;
@@ -17,11 +19,14 @@ public class ExcursionController {
     ExcursionMapper excursionMapper;
     @Autowired
     ExcursionDbService excursionDbService;
+    @Autowired
+    ExcursionFacade excursionFacade;
 
     @RequestMapping(method = RequestMethod.GET, value = "/excursions")
     public List<ExcursionDto> getExcursions() {
-        return excursionMapper.mapToExcursionDtoList (excursionDbService.findAllExcursions ());
+        return excursionFacade.findExcursion ();
     }
+    //excursionMapper.mapToExcursionDtoList (excursionDbService.findAllExcursions ());
 
     @RequestMapping(method = RequestMethod.GET, value = "/excursions/{excursionId}")
     public ExcursionDto getExcursion(@RequestParam Long excursionId) throws ExcursionNotFoundException {
