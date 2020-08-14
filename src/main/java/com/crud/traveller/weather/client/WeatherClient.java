@@ -2,7 +2,6 @@ package com.crud.traveller.weather.client;
 
 import com.crud.traveller.weather.config.WeatherConfig;
 import com.crud.traveller.domain.WeatherDto;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

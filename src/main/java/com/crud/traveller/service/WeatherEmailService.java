@@ -24,7 +24,7 @@ public class WeatherEmailService {
         return weatherClient.getWeatherReport ();
     }*/
     public WeatherDto fetchWeather(){
-        simpleEmailService.send (new Mail (adminConfig.getAdminMail (), "Information about activity" , "Weather has been checked by User." ) );
+        simpleEmailService.send (new Mail (adminConfig.getAdminMail (), "Information about activity" , "Weather has been checked by User."));
         return weatherClient.getWeatherReport ();
     }
 }

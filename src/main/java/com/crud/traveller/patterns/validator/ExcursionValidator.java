@@ -1,4 +1,4 @@
-package com.crud.traveller.currency.validator;
+package com.crud.traveller.patterns.validator;
 
 import com.crud.traveller.entity.Excursion;
 import org.slf4j.Logger;

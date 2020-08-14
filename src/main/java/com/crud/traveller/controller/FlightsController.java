@@ -24,7 +24,7 @@ public class FlightsController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value="/flights/{flightId}")
-    public FlightsDto getFlight(@RequestParam Long flightId) throws FlightsNotFoundException {
+    public FlightsDto getFlight(@PathVariable Long flightId) throws FlightsNotFoundException {
         return flightsMapper.mapToFlightsDto (flightsDbService.getFlight(flightId).orElseThrow (FlightsNotFoundException::new));
     }
 
@@ -39,7 +39,7 @@ public class FlightsController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value ="/flights/{flightId}")
-    public void deleteFlight(@RequestParam Long flightId) throws FlightsNotFoundException{
+    public void deleteFlight(@PathVariable Long flightId) throws FlightsNotFoundException{
         if (flightsDbService.isExist (flightId)){
             flightsDbService.deleteFlight (flightId);
         }else{

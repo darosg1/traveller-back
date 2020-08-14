@@ -1,5 +1,6 @@
 package com.crud.traveller.entity;
 
+import com.crud.traveller.patterns.observer.Observer;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name="USERS")
-public class User {
+public class User implements Observer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long userId;
@@ -31,4 +32,8 @@ public class User {
     @Transient
     private List<Weather> weather;
 
+    @Override
+    public void update (Excursion excursion){
+        System.out.println (userName + " New special offer for" + excursion.getSpecialOffer ());
+    }
 }

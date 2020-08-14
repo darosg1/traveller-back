@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/users/{userId}")
-    public UserDto getUser(@RequestParam Long userId) throws UserNotFoundException {
+    public UserDto getUser(@PathVariable Long userId) throws UserNotFoundException {
         return userMapper.mapToUserDto(userDbService.getUser(userId).orElseThrow(UserNotFoundException::new));
     }
 
@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/users/{userId}")
-    public void deleteUser(@RequestParam Long userId) throws UserNotFoundException {
+    public void deleteUser(@PathVariable Long userId) throws UserNotFoundException {
         if (userDbService.isExist(userId)) {
             userDbService.deleteUser(userId);
         }else{
@@ -49,7 +49,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/users/excursions")
-    public void setExcursion(@RequestParam Long userId, @RequestParam Long excursionId) throws UserNotFoundException, ExcursionNotFoundException {
+    public void setExcursion(@PathVariable Long userId, @PathVariable Long excursionId) throws UserNotFoundException, ExcursionNotFoundException {
         userDbService.setExcursionToUser (userId, excursionId);
     }
 }

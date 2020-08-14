@@ -1,6 +1,7 @@
 package com.crud.traveller.controller;
 
 import com.crud.traveller.domain.HotelDto;
+import com.crud.traveller.domain.UserDto;
 import com.crud.traveller.exception.HotelNotFoundException;
 import com.crud.traveller.mapper.HotelMapper;
 import com.crud.traveller.service.HotelDbService;
@@ -24,7 +25,7 @@ public class HotelController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/hotels/{hotelId}")
-    public HotelDto getHotel(@RequestParam Long hotelId) throws HotelNotFoundException {
+    public HotelDto getHotel(@PathVariable Long hotelId) throws HotelNotFoundException {
         return hotelMapper.mapToHotelDto(hotelDbService.getHotel(hotelId).orElseThrow(HotelNotFoundException::new));
     }
 
@@ -32,13 +33,14 @@ public class HotelController {
     public void createHotel(@RequestBody HotelDto hotelDto){
         hotelDbService.saveHotel(hotelMapper.mapToHotel(hotelDto));
     }
+
     @RequestMapping(method = RequestMethod.PUT, value = "/hotels", consumes = APPLICATION_JSON_VALUE)
     public HotelDto updateHotel(@RequestBody HotelDto hotelDto){
         return hotelMapper.mapToHotelDto (hotelDbService.saveHotel (hotelMapper.mapToHotel (hotelDto)));
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/hotels/{hotelId}")
-    public void deleteHotel(@RequestParam Long hotelId) throws HotelNotFoundException{
+    public void deleteHotel(@PathVariable Long hotelId) throws HotelNotFoundException{
         if (hotelDbService.isExist (hotelId)){
             hotelDbService.deleteHotel (hotelId);
         }else{

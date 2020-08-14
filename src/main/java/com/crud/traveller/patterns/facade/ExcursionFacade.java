@@ -1,6 +1,6 @@
-package com.crud.traveller.currency.facade;
+package com.crud.traveller.patterns.facade;
 
-import com.crud.traveller.currency.validator.ExcursionValidator;
+import com.crud.traveller.patterns.validator.ExcursionValidator;
 import com.crud.traveller.domain.ExcursionDto;
 import com.crud.traveller.entity.Excursion;
 import com.crud.traveller.mapper.ExcursionMapper;
@@ -20,7 +20,7 @@ public class ExcursionFacade {
     @Autowired
     ExcursionValidator excursionValidator;
 
-    public List<ExcursionDto> findExcursion(){
+    public List<ExcursionDto> findExcursions(){
         List<Excursion> existingExcursions = excursionDbService.findAllExcursions ();
         List<Excursion> filteredExcursions = excursionValidator.validateExcursions(existingExcursions);
         return excursionMapper.mapToExcursionDtoList (filteredExcursions );

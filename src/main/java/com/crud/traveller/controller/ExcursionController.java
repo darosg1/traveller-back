@@ -1,7 +1,6 @@
 package com.crud.traveller.controller;
 
-import com.crud.traveller.currency.facade.ExcursionFacade;
-import com.crud.traveller.currency.validator.ExcursionValidator;
+import com.crud.traveller.patterns.facade.ExcursionFacade;
 import com.crud.traveller.domain.ExcursionDto;
 import com.crud.traveller.exception.ExcursionNotFoundException;
 import com.crud.traveller.mapper.ExcursionMapper;
@@ -24,12 +23,12 @@ public class ExcursionController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/excursions")
     public List<ExcursionDto> getExcursions() {
-        return excursionFacade.findExcursion ();
+        return excursionFacade.findExcursions ();
     }
     //excursionMapper.mapToExcursionDtoList (excursionDbService.findAllExcursions ());
 
     @RequestMapping(method = RequestMethod.GET, value = "/excursions/{excursionId}")
-    public ExcursionDto getExcursion(@RequestParam Long excursionId) throws ExcursionNotFoundException {
+    public ExcursionDto getExcursion(@PathVariable Long excursionId) throws ExcursionNotFoundException {
         return excursionMapper.mapToExcursionDto (excursionDbService.getExcursion (excursionId).orElseThrow(ExcursionNotFoundException::new));
     }
 
@@ -44,7 +43,7 @@ public class ExcursionController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/excursions/{excursionId}")
-    public void deleteExcursion(@RequestParam Long excursionId) throws ExcursionNotFoundException {
+    public void deleteExcursion(@PathVariable Long excursionId) throws ExcursionNotFoundException {
         if (excursionDbService.isExist(excursionId)) {
             excursionDbService.deleteExcursion (excursionId);
         } else {

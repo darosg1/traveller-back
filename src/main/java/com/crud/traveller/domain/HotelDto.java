@@ -2,6 +2,9 @@ package com.crud.traveller.domain;
 
 import com.crud.traveller.entity.Excursion;
 import lombok.*;
+
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 @AllArgsConstructor

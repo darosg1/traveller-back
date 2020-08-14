@@ -14,6 +14,8 @@ public class ExcursionMapper {
             excursionDto.getDestination (),
             excursionDto.getPrice (),
             excursionDto.getDepartureDate (),
+            excursionDto.getSpecialOffer (),
+            excursionDto.getObservers (),
             excursionDto.getHotels (),
             excursionDto.getFlights (),
             excursionDto.getWeather (),
@@ -25,6 +27,8 @@ public class ExcursionMapper {
                 excursion.getDestination (),
                 excursion.getPrice (),
                 excursion.getDepartureDate (),
+                excursion.getSpecialOffer (),
+                excursion.getObservers (),
                 excursion.getHotels (),
                 excursion.getFlights (),
                 excursion.getWeather (),
@@ -33,8 +37,8 @@ public class ExcursionMapper {
     public List<ExcursionDto> mapToExcursionDtoList(final List<Excursion> excursionList){
         return excursionList.stream ()
                 .map ( e->new ExcursionDto (e.getExcursionId (), e.getDestination (),
-                        e.getPrice (), e.getDepartureDate (), e.getHotels (), e.getFlights (),
-                    e. getWeather(), e.getUser ()))
+                        e.getPrice (), e.getDepartureDate (),e.getSpecialOffer (), e.getObservers (),
+                        e.getHotels (), e.getFlights (), e. getWeather(), e.getUser ()))
                 .collect ( Collectors.toList ());
     }
 }
