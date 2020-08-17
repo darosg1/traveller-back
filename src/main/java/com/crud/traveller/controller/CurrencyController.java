@@ -16,10 +16,8 @@ public class CurrencyController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/currency")
     public void getExchangeRate() {
-       /* currencyFacade.findCurrencyExchange ();
-    }*/
         List<CurrencyDto> exchange = currencyClient.getExchangeTable ();
-        exchange.forEach ( currencyDto ->
+        exchange.forEach (currencyDto ->
                 System.out.println (currencyDto.getTable ()+
                         currencyDto.getEffectiveDate ()+ currencyDto.getNo ()+currencyDto.getRates ()));
     }

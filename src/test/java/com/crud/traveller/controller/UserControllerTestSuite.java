@@ -2,6 +2,7 @@ package com.crud.traveller.controller;
 
 import com.crud.traveller.domain.UserDto;
 import com.crud.traveller.entity.*;
+import com.crud.traveller.mapper.ExcursionMapper;
 import com.crud.traveller.mapper.UserMapper;
 import com.crud.traveller.service.UserDbService;
 import com.google.gson.Gson;
@@ -125,14 +126,12 @@ public class UserControllerTestSuite {
                 .andExpect(jsonPath("$.userKey", is("1234")))
                 .andExpect(jsonPath("$.excursion", is(excursionsItaly2)));
     }
-
     @Test
     public void deleteUser() throws Exception{
         //Given
         //When & Then
         mockMvc.perform(delete("/v1/users/1"))
                 .andExpect(status().is(200));
-
         verify(userDbService, times(1)).deleteUser(any());
     }
 }

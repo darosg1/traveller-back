@@ -2,14 +2,12 @@ package com.crud.traveller.controller;
 
 import com.crud.traveller.LocalDateAdapter;
 import com.crud.traveller.domain.ExcursionDto;
-import com.crud.traveller.domain.FlightsDto;
 import com.crud.traveller.entity.*;
 import com.crud.traveller.mapper.ExcursionMapper;
 import com.crud.traveller.patterns.facade.ExcursionFacade;
 import com.crud.traveller.service.ExcursionDbService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentMatchers;
@@ -32,7 +30,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith (SpringRunner.class)
 @WebMvcTest(ExcursionController.class)
-public class ExcursionTestSuite {
+public class ExcursionControllerTestSuite {
     @Autowired
     private MockMvc mockMvc;
 

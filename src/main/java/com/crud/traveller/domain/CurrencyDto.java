@@ -21,6 +21,6 @@ public class CurrencyDto {
     @JsonProperty("effectiveDate")
     private String effectiveDate;
     @JsonProperty("rates")
-    private List<Rates> rates;
+    private List<RatesDto> rates;
     private User user;
 }

@@ -3,7 +3,6 @@ package com.crud.traveller.service;
 import com.crud.traveller.entity.*;
 import com.crud.traveller.patterns.observer.Observer;
 import com.crud.traveller.repository.ExcursionRepository;
-import org.assertj.core.error.OptionalShouldContainInstanceOf;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)

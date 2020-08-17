@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class Rates {
     private String currency;
     private String code;
-    private Double mid;;
+    private Double mid;
 }

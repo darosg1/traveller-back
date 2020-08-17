@@ -35,11 +35,4 @@ public class CurrencyClient {
             return new ArrayList<> ();
         }
     }
-/*
-   public List<CurrencyDto> getExchangeTable() {
-        CurrencyDto[] currencyResponse = restTemplate.getForObject(
-                currencyConfig.getCurrencyApiEndpoint (),
-                CurrencyDto[].class);
-        return Arrays.asList(currencyResponse);
-    }*/
 }
