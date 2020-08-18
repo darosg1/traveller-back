@@ -15,7 +15,6 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ExcursionMapperTestSuite {
-
     @Autowired
     ExcursionMapper excursionMapper;
 

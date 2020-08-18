@@ -2,7 +2,6 @@ package com.crud.traveller.controller;
 
 import com.crud.traveller.domain.UserDto;
 import com.crud.traveller.entity.*;
-import com.crud.traveller.mapper.ExcursionMapper;
 import com.crud.traveller.mapper.UserMapper;
 import com.crud.traveller.service.UserDbService;
 import com.google.gson.Gson;

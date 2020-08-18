@@ -4,7 +4,6 @@ import com.crud.traveller.domain.ExcursionDto;
 import com.crud.traveller.entity.*;
 import com.crud.traveller.mapper.ExcursionMapper;
 import com.crud.traveller.patterns.facade.ExcursionFacade;
-import com.crud.traveller.patterns.observer.Observer;
 import com.crud.traveller.patterns.validator.ExcursionValidator;
 import com.crud.traveller.service.ExcursionDbService;
 import org.junit.Assert;
@@ -13,18 +12,14 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FacadeTestSuite {
-
     @InjectMocks
     private ExcursionFacade excursionFacade;
 

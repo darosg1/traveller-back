@@ -1,7 +1,6 @@
 package com.crud.traveller.controller;
 
 import com.crud.traveller.domain.HotelDto;
-import com.crud.traveller.domain.UserDto;
 import com.crud.traveller.exception.HotelNotFoundException;
 import com.crud.traveller.mapper.HotelMapper;
 import com.crud.traveller.service.HotelDbService;
